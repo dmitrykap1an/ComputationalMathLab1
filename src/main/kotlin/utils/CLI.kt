@@ -14,7 +14,7 @@ object CLI {
     private var visible = true
     private var accuracy: Double? = null
 
-    fun askInputOption(): MutableList<List<Double>> {
+    fun askInputOption(): Pair<MutableList<List<Double>>, Double?> {
             print("Прочитать данные из файла? Д/н ")
             val str = readln()
             input = when (str.uppercase()) {
@@ -28,7 +28,7 @@ object CLI {
                     { readln() }
                 }
             }
-            return askMatrix()
+            return Pair(askMatrix(), accuracy!!)
     }
 
     fun getMatrixSize() =
